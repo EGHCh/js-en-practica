@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <title>Ejercicio 1</title>
+
+ </head>
+
+ <body>
+  <div>
+   <div style="width: 40%; margin: 0 auto;">
+    <h2>
+     Escríbenos !!!
+    </h2>
+    <div id="resultado" style="color: green; font-style: italic;"></div>
+    <form id="formulario">
+     <div>
+      <div style="display: flex; flex-direction: column;">
+       <label>
+        Nombre completo
+       </label>
+       <input id="nombre" type="text" />
+       <p id="errorNombre" style="color: red; font-style: italic;"></p>
+      </div>
+      <div style="display: flex; flex-direction: column;">
+       <label>
+        Asunto
+       </label>
+       <input id="asunto" type="text" />
+       <p id="errorAsunto" style="color: red; font-style: italic;"></p>
+      </div>
+     </div>
+     <div style="display: flex; flex-direction: column;">
+      <label>
+       Mensaje
+      </label>
+      <textarea id="mensaje"></textarea>
+      <p id="errorMensaje" style="color: red; font-style: italic;"></p>
+     </div>
+     <div>
+      <button id="botton" type="button">
+       Envíar mensaje
+      </button>
+     </div>
+    </form>
+   </div>
+  </div>
+  <script>
+   let botonSubmit = document.getElementById("botton");
+   botonSubmit.addEventListener("click", function () {
+    let nombre = document.getElementById("nombre")
+    let asunto = document.getElementById("asunto")
+    let mensaje = document.getElementById("mensaje")
+
+    if (nombre.value !== "" && asunto.value !== "" && mensaje.value !== "") {
+        let mensajeExito = document.getElementById("resultado");
+        mensajeExito.innerHTML= "Mensaje enviado correctamente"
+    } else {
+    if (nombre.value == "") {
+        let errorNombre = document.getElementById("errorNombre");
+        errorNombre.innerHTML = "Nombre requerido";
+
+    } if (asunto.value == "") {
+        let errorAsunto = document.getElementById("errorAsunto");
+        errorAsunto.innerHTML = "Asunto requerido";
+
+    } if (mensaje.value == "") {
+        let errorMensaje = document.getElementById("errorMensaje");
+        errorMensaje.innerHTML = "Mensjae requerido";
+
+    }}
+
+    // {
+    //     let mensajeExito = document.getElementById("resultado");
+    //     mensajeExito.innerHTML= "Todo Ok, Todo correcto"
+    // }
+   });
+  </script>
+ </body>
+</html>
